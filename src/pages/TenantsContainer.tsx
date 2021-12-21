@@ -32,17 +32,19 @@ function TenantsContainer() {
     }
   }, [state]);
 
-  function loadTenants() {
-    getTenants().then(result => {
+  async function loadTenants() {
+    try {
+      const result = await getTenants()
       setTenantsList(result);
-    }).catch((e) => {
+    } catch(e) {
       console.error('Load Tenants list error', e);
-    }).finally(() => setIsLoading(false));
+    };
+    setIsLoading(false)
   }
 
   if(isLoading) {
     return (
-      <Box sx={styles.loader}>Loading ...</Box>
+      <Box sx={styles.loader}>Loading...</Box>
     )
   }
 

@@ -30,7 +30,7 @@ interface Props {
   tenantsList: TenantType[] | [];
 }
 
-function Tenants({ tenantsList }: Props) {
+function Tenants({ tenantsList = [] }: Props) {
   const history = useHistory();
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
@@ -67,7 +67,7 @@ function Tenants({ tenantsList }: Props) {
   return (
     <Box sx={styles.container as any}>
       <Box sx={styles.list as any}>{tenantsListJSX}</Box>
-      <Pagination count={count} page={page} onChange={handleChange} />
+      <Pagination count={count} page={page} onChange={handleChange} data-testid='tenantsList:pagination' />
     </Box>
   )
 }

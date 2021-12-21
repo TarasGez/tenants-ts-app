@@ -21,7 +21,7 @@ function TenantItem({ item }: Props) {
   return(
     <Box sx={styles.container}>
       <Link to = {{
-        pathname: `tenant/${item.id}`,
+        pathname: `/tenant/${item.id}`,
         state: { item }
       }
       }>{item.name}</Link>
